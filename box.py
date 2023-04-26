@@ -1,8 +1,8 @@
 def maxNest(boxes):
     n = len(boxes)
 
-    for i in range(n-i-1):
-        for j in range(n):
+    for i in range(n):
+        for j in range(n-i-1):
             if boxes[j][0] < boxes[j+1][0]:
                 boxes[j], boxes[j+1] = boxes[j+1], boxes[j]
 
