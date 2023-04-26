@@ -29,3 +29,11 @@ def take_input():
     with open(testfile, 'r') as file:
         lines = file.readlines()
         n = int(lines[0])
+        boxes = [0 for x in range(n)]
+        for i in range(1, len(lines)):
+            box_dim = lines[i].strip().split()
+            boxes[i-1] = box_dim
+
+    print(boxes)
+
+take_input()
