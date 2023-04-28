@@ -1,12 +1,16 @@
 import sys
 
-def maxNest(boxes):
+
+def max_nest(boxes):
     n = len(boxes)
 
     for i in range(n):
         for j in range(n-i-1):
-            if boxes[j][0] < boxes[j+1][0]:
+            if float(boxes[j][0]) < float(boxes[j+1][0]):
                 boxes[j], boxes[j+1] = boxes[j+1], boxes[j]
+
+    print("*" * 100)
+    print(boxes)
 
     dp = [1 for x in range(n)]
     for i in range(n):
@@ -16,17 +20,11 @@ def maxNest(boxes):
 
     return max(dp)
 
+
 def take_input():
-    #n = int(input())
-    #boxes = [0 for x in range(n)]
 
-    #for i in range(n):
-    #    box_dim = input().split(" ")
-    #    boxes[i] = box_dim
-    #print(boxes)
-
-    testfile = sys.argv[1]
-    with open(testfile, 'r') as file:
+    # testfile = sys.argv[1]
+    with open('test1.txt', 'r') as file:
         lines = file.readlines()
         n = int(lines[0])
         boxes = [0 for x in range(n)]
@@ -35,5 +33,7 @@ def take_input():
             boxes[i-1] = box_dim
 
     print(boxes)
+    print(max_nest(boxes))
+
 
 take_input()
