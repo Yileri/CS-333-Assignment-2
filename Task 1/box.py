@@ -9,16 +9,13 @@ def max_nest(boxes):
             if float(boxes[j][0]) < float(boxes[j+1][0]):
                 boxes[j], boxes[j+1] = boxes[j+1], boxes[j]
 
-    print(boxes)
-
     dp = [1 for x in range(n)]
     for i in range(n):
         for j in range(i+1, n):
             if float(boxes[i][0]) > float(boxes[j][0]) and float(boxes[i][1]) > float(boxes[j][1]) and float(boxes[i][2]) > float(boxes[j][2]):
                 dp[j] = max(dp[j], dp[i]+1)
 
-    print(dp)
-    return max(dp)
+    return dp[n-1]
 
 
 def take_input():
