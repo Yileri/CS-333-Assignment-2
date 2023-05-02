@@ -53,5 +53,4 @@ def take_input():
     print(max_value(arithmetic))
 
 
-if __name__ == "__main__":
-    take_input()
+take_input()

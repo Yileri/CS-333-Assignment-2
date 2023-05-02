@@ -4,12 +4,16 @@ import sys
 def max_nest(boxes):
     n = len(boxes)
 
+    # sort the boxes
     for i in range(n):
         for j in range(n-i-1):
             if float(boxes[j][0]) < float(boxes[j+1][0]):
                 boxes[j], boxes[j+1] = boxes[j+1], boxes[j]
 
+    # initialize an array for storing values
     dp = [1 for x in range(n)]
+
+    # check for each box wheter they can store others or not
     for i in range(n):
         for j in range(i+1, n):
             if float(boxes[i][0]) > float(boxes[j][0]) and float(boxes[i][1]) > float(boxes[j][1]) and float(boxes[i][2]) > float(boxes[j][2]):
